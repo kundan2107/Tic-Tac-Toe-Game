@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise MVC Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Tic-Tac-Toe <span class="pro-badge">MVC Architecture</span></h1>
+
+        <div class="game-layout">
+            <div class="board-container">
+                <div class="status" id="status-display">Player X's Turn</div>
+                <div class="board" id="game-board">
+                    <div class="cell" data-index="0"></div>
+                    <div class="cell" data-index="1"></div>
+                    <div class="cell" data-index="2"></div>
+                    <div class="cell" data-index="3"></div>
+                    <div class="cell" data-index="4"></div>
+                    <div class="cell" data-index="5"></div>
+                    <div class="cell" data-index="6"></div>
+                    <div class="cell" data-index="7"></div>
+                    <div class="cell" data-index="8"></div>
+                </div>
+                <button id="reset-btn" class="control-btn">Reset Board</button>
+            </div>
+
+            <div class="leaderboard">
+                <h2>Local Leaderboard</h2>
+                <div id="leaderboard-list"></div>
+                <button id="clear-leaderboard-btn" class="clear-btn">Clear Stats</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="game-overlay" class="overlay">
+        <div class="overlay-content">
+            <div id="overlay-title" class="overlay-title"></div>
+            <p id="overlay-message"></p>
+            <button id="overlay-close-btn" class="control-btn">Play Another Match</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

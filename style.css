@@ -1,0 +1,216 @@
+:root {
+    --primary: #4f46e5;
+    --dark: #0f172a;
+    --light: #f8fafc;
+    --x-color: #4f46e5;
+    --x-bg: #e0e7ff;
+    --o-color: #d97706;
+    --o-bg: #fef3c7;
+    --success: #10b981;
+    --gray: #64748b;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--light);
+    color: var(--dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+}
+
+.pro-badge {
+    font-size: 0.9rem;
+    background: var(--primary);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    vertical-align: middle;
+}
+
+.game-layout {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+/* Board Architecture */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    background-color: #cbd5e1;
+    padding: 10px;
+    border-radius: 16px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.cell {
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.cell:hover {
+    background-color: #f1f5f9;
+    transform: scale(1.02);
+}
+
+/* Distinct Dynamic Colors Per Player */
+.cell.x-marker {
+    color: var(--x-color);
+    background-color: var(--x-bg);
+}
+
+.cell.o-marker {
+    color: var(--o-color);
+    background-color: var(--o-bg);
+}
+
+.status {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.control-btn {
+    margin-top: 25px;
+    padding: 12px 24px;
+    background-color: var(--dark);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.control-btn:hover {
+    background-color: var(--primary);
+}
+
+/* Leaderboard Component Card */
+.leaderboard {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    min-width: 280px;
+}
+
+.leaderboard h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 10px;
+}
+
+.leaderboard-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 16px;
+    margin-bottom: 8px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+}
+
+/* Interactive Event Overlay (Modal) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.overlay-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+    max-width: 400px;
+    width: 90%;
+}
+
+.overlay.active .overlay-content {
+    transform: scale(1);
+}
+
+.overlay-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 15px;
+}
+
+.overlay-win {
+    color: var(--success);
+}
+
+.overlay-draw {
+    color: var(--gray);
+}
+
+#overlay-message {
+    font-size: 1.1rem;
+    color: #475569;
+    margin-bottom: 20px;
+}
+
+.clear-btn {
+    margin-top: 15px;
+    padding: 6px 12px;
+    background-color: transparent;
+    color: var(--gray);
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.85rem;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+.clear-btn:hover {
+    background-color: #fee2e2;
+    /* Subtle red alert hint */
+    color: #ef4444;
+    border-color: #fca5a5;
+}
