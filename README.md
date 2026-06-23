@@ -1,0 +1,1 @@
+A lightweight, interactive Tic-Tac-Toe game built with [Language/Framework, e.g., HTML/CSS/JavaScript]. Features a clean UI, responsive design, and local two-player mode.
